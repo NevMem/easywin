@@ -1,5 +1,6 @@
 package com.example.easywin.dagger
 
+import com.example.easywin.LoginActivity
 import com.example.easywin.TestActivity
 import com.example.easywin.dagger.modules.DataModule
 import com.example.easywin.dagger.modules.NetworkModule
@@ -10,4 +11,5 @@ import javax.inject.Singleton
 @Component(modules = [NetworkModule::class, DataModule::class])
 interface AppComponent {
     fun inject(testActivity: TestActivity)
+    fun inject(loginActivity : LoginActivity)
 }

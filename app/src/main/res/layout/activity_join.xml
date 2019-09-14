@@ -49,15 +49,11 @@
             android:textSize="@dimen/default_text_size" />
 
         <Button
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BorderlessButton"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:onClick="onQrButtonClick"
-            android:text="@string/join_with_qr"
-            android:textColor="@color/grayTextColor"
-            android:textSize="@dimen/default_text_size" />
+            android:text="@string/join_with_qr" />
 
     </LinearLayout>
 
@@ -81,11 +77,11 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
-            android:onClick="onQrButtonClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@color/defaultBackgroundColor"
+            android:onClick="onQrButtonClick"
             app:srcCompat="@drawable/qr_code_picture" />
 
     </FrameLayout>

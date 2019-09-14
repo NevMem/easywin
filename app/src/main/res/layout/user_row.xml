@@ -29,7 +29,7 @@
         android:visibility="gone">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/assignMoney"
             android:layout_width="103dp"
             android:layout_height="wrap_content"
             android:textColor="@color/themeColor"

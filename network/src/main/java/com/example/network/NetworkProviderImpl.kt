@@ -34,6 +34,7 @@ class NetworkProviderImpl : NetworkProvider {
 
     override fun login(login: String, password: String): Observable<RequestState<UserData>> {
         return Observable.create {
+            it.onNext(PendingState())
             backendService
                 .login(LoginRequest(login, password))
                 .enqueue(LoginRequestCallback(object : RequestStateListener<RequestState<UserData>> {

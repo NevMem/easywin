@@ -12,22 +12,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
 import com.example.network.ErrorState;
-import com.example.network.NetworkProvider;
-import com.example.network.PendingState;
 import com.example.network.RequestState;
 import com.example.network.SuccessState;
 import com.example.network.UserData;
-
-import java.util.Observable;
 
 import javax.inject.Inject;
 
 public class LoginActivity extends AppCompatActivity {
     @Inject
-    NetworkProvider networkProvider;
+    UserHolder userHolder;
 
     UserData userData;
-    Button logginButton;
+    Button loginButton;
+    ProgressBar bar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,26 +34,26 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loggin);
 
         setUpEnterAnimations();
-
-        logginButton = findViewById(R.id.login_button);
+        loginButton = findViewById(R.id.login_button);
+        bar = findViewById(R.id.progress_bar);
     }
 
     public void onLoginButtonClick(View view) {
         String login = ((EditText)findViewById(R.id.login_field)).getText().toString();
         String password = ((EditText)findViewById(R.id.password_field)).getText().toString();
 
-        networkProvider.login(login, password).observe(this, new Observer<RequestState>() {
+        userHolder.tryLogin(login, password).observe(this, new Observer<RequestState>() {
             @Override
             public void onChanged(RequestState requestState) {
-                ProgressBar bar = findViewById(R.id.progress_bar);
-                logginButton.setText("");
+
+                loginButton.setText("");
                 bar.setVisibility(View.VISIBLE);
                 if (requestState instanceof ErrorState) {
-                    logginButton.setText(getString(R.string.enter));
+                    loginButton.setText(getString(R.string.enter));
                     bar.setVisibility(View.GONE);
                 } else if (requestState instanceof SuccessState) {
                     userData = (UserData) ((SuccessState) requestState).getPayload();
-                    logginButton.setText(getString(R.string.enter));
+                    loginButton.setText(getString(R.string.enter));
                     bar.setVisibility(View.GONE);
                 }
             }

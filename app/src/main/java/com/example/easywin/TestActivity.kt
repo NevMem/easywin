@@ -2,6 +2,7 @@ package com.example.easywin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.lifecycle.Observer
 import com.example.network.*
@@ -11,6 +12,12 @@ import javax.inject.Inject
 class TestActivity : AppCompatActivity() {
     @Inject
     lateinit var networkProvider: NetworkProvider
+
+    @Inject
+    lateinit var userHolder: UserHolder
+
+    @Inject
+    lateinit var sessionHolder: SessionHolder
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,20 +29,39 @@ class TestActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             val login = login.text.toString()
             val password = password.text.toString()
-            networkProvider.login(login, password).observe(this, Observer {
+            userHolder.tryLogin(login, password).observe(this, Observer {
                 when (it) {
-                    is PendingState -> progress.visibility = View.VISIBLE
-                    is ErrorState -> {
+                    is PendingState<UserData> -> progress.visibility = View.VISIBLE
+                    is ErrorState<UserData> -> {
                         progress.visibility = View.GONE
                         out_text.text = it.error
                     }
-                    is SuccessState<*> -> {
+                    is SuccessState<UserData> -> {
                         progress.visibility = View.GONE
-                        val userData = it.payload as UserData
+                        val userData = it.payload
                         out_text.text = "${userData.name} ${userData.login} ${userData.age} ${userData.surname}"
                     }
                 }
             })
+        }
+
+        createSession.setOnClickListener {
+            sessionHolder.makeSession()
+                .observe(this, Observer {
+                    if (it == null)
+                        return@Observer
+                    when (it) {
+                        is PendingState -> sessionLoading.visibility = View.VISIBLE
+                        is ErrorState -> {
+                            sessionLoading.visibility = View.GONE
+                            sessionText.text = it.error
+                        }
+                        is SuccessState -> {
+                            sessionLoading.visibility = View.GONE
+                            sessionText.text = it.payload.sessionId
+                        }
+                    }
+                })
         }
     }
 }

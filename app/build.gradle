@@ -49,4 +49,6 @@ dependencies {
 
     kapt 'com.google.dagger:dagger-android-processor:2.21'
     kapt 'com.google.dagger:dagger-compiler:2.21'
+
+    implementation "io.reactivex.rxjava3:rxjava:3.0.0-RC2"
 }

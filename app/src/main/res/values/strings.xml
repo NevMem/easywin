@@ -4,4 +4,6 @@
     <string name="join_with_id">Введите id</string>
     <string name="join_with_qr">Использовать QR код</string>
     <string name="join_button">Присоединиться</string>
+
+    <string name="big">30dp</string>
 </resources>

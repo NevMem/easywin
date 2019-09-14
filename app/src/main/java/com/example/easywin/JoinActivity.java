@@ -17,13 +17,12 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     public void onJoinButtonClick(View view) {
-        throw new NotImplementedError();
+        // TODO:
     }
 
     public void onQrButtonClick(View view) {
-        throw new NotImplementedError();
+        // TODO:
     }
-
 
 
     private String getTextFromEditText(View view) {

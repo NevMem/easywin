@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".fragments.UserInfoActivity"></activity>
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"></activity>

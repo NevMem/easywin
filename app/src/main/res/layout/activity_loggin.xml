@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/defaultBackgroundColor"
-    tools:context=".LogginActivity">
+    tools:context=".LoginActivity">
 
 
     <LinearLayout
@@ -56,28 +56,49 @@
             android:backgroundTint="@color/defaultBackgroundColor"
             android:ems="10"
             android:hint="@string/password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:textColor="@color/defaultBackgroundColor"
             android:textColorHint="@color/defaultBackgroundColor"
             android:textCursorDrawable="@color/defaultBackgroundColor"
             android:textSize="@dimen/default_text_size" />
 
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:text="@string/wrong_login_data"-->
-<!--            />-->
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:layout_gravity="center_horizontal"-->
+        <!--            android:text="@string/wrong_login_data"-->
+        <!--            />-->
 
-        <Button
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
             android:layout_marginRight="20dp"
-            android:textColor="@color/colorPrimary"
-            android:text="@string/enter" />
+            android:layout_marginTop="50dp">
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="onLoginButtonClick"
+                android:text="@string/enter"
+                android:textColor="@color/colorPrimary"
+                android:clickable="true"
+                />
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:elevation="24dp"
+                android:indeterminateTint="@color/colorPrimary"
+                android:visibility="gone"
+                />
+        </FrameLayout>
+
 
         <Button
             style="@style/BorderlessButton"
@@ -86,9 +107,9 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
+            android:text="@string/create_new_account"
             android:textColor="@color/defaultBackgroundColor"
-            android:textSize="@dimen/small_text_size"
-            android:text="@string/create_new_account" />
+            android:textSize="@dimen/small_text_size" />
 
     </LinearLayout>
 

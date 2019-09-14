@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/defaultBackgroundColor"
+    android:orientation="vertical"
+    tools:context=".JoinActivity"
+    android:clipToPadding="false">
+
+    <fragment
+        android:id="@+id/top_bar"
+        android:tag="join activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.example.easywin.fragments.TopBarFragment"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/meeting_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/meeting_name"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/meeting_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:hint="@string/join_with_id"
+            android:inputType="textPersonName"
+            android:backgroundTint="@color/themeColor"
+            android:textCursorDrawable="@color/design_default_color_on_secondary"
+            android:textColor="@color/design_default_color_on_secondary" />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onQrButtonClick"
+            android:textColor="@color/grayTextColor"
+            android:text="@string/join_with_qr" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="20dp"
+            android:background="@color/themeColor"
+            android:text="@string/join_button"
+            android:textColor="@color/defaultBackgroundColor" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

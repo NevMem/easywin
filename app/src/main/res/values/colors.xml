@@ -8,4 +8,5 @@
     <color name="defaultTransBackgroundColor">#E2F0F5F9</color>
     <color name="secondaryButtonColor">#E6ECF2</color>
     <color name="errorColor">#e62632</color>
+    <color name="grayTextColor">#888383</color>
 </resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <Button
+        android:id="@+id/join_lobby_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Присоединиться"
+        app:layout_constraintTop_toBottomOf="@id/create_lobby_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"/>
+
+    <Button
+        android:id="@+id/create_lobby_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Создать лобби"
+        app:layout_constraintTop_toBottomOf="@id/main_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="70dp"/>
+
+    <TextView
+        android:id="@+id/main_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ГРУППОВОЙ\nСЧЁТ"
+        android:textSize="50dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/currentOstatok"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="60dp"/>
+
+    <TextView
+        android:id="@+id/currentOstatok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="228₽"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="40dp"/>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vasiley Pupkin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

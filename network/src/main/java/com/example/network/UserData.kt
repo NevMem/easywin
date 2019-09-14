@@ -4,5 +4,6 @@ data class UserData(
     var login: String?,
     var name: String?,
     var age: Int?,
-    var surname: String?
+    var surname: String?,
+    var deviceId: String?
 )

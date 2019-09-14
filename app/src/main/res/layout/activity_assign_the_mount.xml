@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EndOfCreatingMeeting">
+    tools:context=".AssignTheMount">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".EndOfCreatingMeeting">
+        tools:context=".AssignTheMount">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,40 +41,6 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginRight="40dp"
-                android:text="ИДЕНТИФИКАТОР:"
-                android:textAlignment="center" />
-
-            <TextView
-                android:id="@+id/textViewIdentificator"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginRight="70dp"
-                android:layout_weight="1"
-                android:text="Название"
-                android:textAlignment="center"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="34dp"
-                android:layout_marginRight="100dp"
-                android:background="@color/errorColor"
-                android:onClick="OnClick"
-                android:text="QR код"
-                android:textAlignment="center" />
-
             <Button
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
@@ -83,8 +50,8 @@
                 android:layout_marginRight="100dp"
                 android:layout_marginBottom="50dp"
                 android:background="@color/themeColor"
-                android:onClick="onEndOfCreateingButtonClick"
-                android:text="ЗАВЕРШИТЬ" />
+                android:onClick="onClick"
+                android:text="ПОДТВЕРДИТЬ" />
 
         </LinearLayout>
     </ScrollView>
@@ -107,4 +74,3 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
-

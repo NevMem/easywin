@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.easywin.JoinActivity
-import com.example.easywin.R
+import com.example.easywin.*
 import kotlinx.android.synthetic.main.main_page.view.*
 
 class MainPageFragment : Fragment() {
@@ -24,6 +23,15 @@ class MainPageFragment : Fragment() {
 
         view.join_lobby_button.setOnClickListener {
             var intent = Intent(context, JoinActivity::class.java)
+            startActivity(intent)
+        }
+
+        view.create_lobby_button.setOnClickListener {
+            //val intent = Intent(context, CreatemeetActivity::class.java)
+            //startActivity(intent)
+            //val intent = Intent(context, EndOfCreatingMeeting::class.java)
+            //startActivity(intent)
+            val intent = Intent(context, AssignTheMount::class.java)
             startActivity(intent)
         }
     }

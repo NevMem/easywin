@@ -13,9 +13,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val intent: Intent = Intent(this, CreatemeetActivity::class.java)
-        startActivity(intent)
-
         val adapter = MainPageViewPagerAdapter(lifecycle, supportFragmentManager)
         anchor.adapter = adapter
         anchor.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {

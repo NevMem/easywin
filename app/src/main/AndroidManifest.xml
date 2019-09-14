@@ -14,13 +14,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name=".TestActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".JoinActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LogginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

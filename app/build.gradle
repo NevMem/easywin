@@ -7,6 +7,9 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
         applicationId "com.example.easywin"
         minSdkVersion 21

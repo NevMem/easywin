@@ -4,4 +4,7 @@
     <string name="join_with_id">Введите id</string>
     <string name="join_with_qr">Использовать QR код</string>
     <string name="join_button">Присоединиться</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="top_bar_logo">Я андроид разработчик</string>
 </resources>

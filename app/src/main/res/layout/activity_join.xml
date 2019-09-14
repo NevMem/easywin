@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/defaultBackgroundColor"
     android:orientation="vertical"
-    tools:context=".JoinActivity">
+    tools:context=".JoinActivity"
+    android:clipToPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp">
 
         <TextView
             android:id="@+id/meeting_title"
@@ -23,29 +27,26 @@
             android:text="@string/meeting_name"
             android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="@string/join_with_id" />
-
         <EditText
             android:id="@+id/meeting_id"
-            android:autofillHints="@string/join_with_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:hint="@string/join_with_id"
+            android:inputType="textPersonName"
+            android:backgroundTint="@color/themeColor"
+            android:textCursorDrawable="@color/design_default_color_on_secondary"
+            android:textColor="@color/design_default_color_on_secondary" />
 
         <Button
-            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:background="@color/defaultBackgroundColor"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:onClick="onQrButtonClick"
+            android:textColor="@color/grayTextColor"
             android:text="@string/join_with_qr" />
 
     </LinearLayout>

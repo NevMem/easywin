@@ -79,6 +79,15 @@
             android:textColor="@color/defaultBackgroundColor"
             android:textSize="@dimen/default_text_size" />
 
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:onClick="onQrButtonClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/defaultBackgroundColor"
+            app:srcCompat="@drawable/qr_code_picture" />
+
     </FrameLayout>
 
 

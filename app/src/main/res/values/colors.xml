@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#005a99</color>
+    <color name="colorPrimary">#005A99</color>
     <color name="colorAccent">#32FF77</color>
     <color name="colorPrimaryDark">#003C64</color>
     <color name="themeColor">#005a99</color>
     <color name="defaultBackgroundColor">#f0f5f9</color>
-    <color name="secondaryButtonColor">#e6ecf2</color>
+    <color name="defaultTransBackgroundColor">#E2F0F5F9</color>
+    <color name="secondaryButtonColor">#E6ECF2</color>
     <color name="errorColor">#e62632</color>
 </resources>

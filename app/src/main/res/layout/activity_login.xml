@@ -62,31 +62,22 @@
             android:textCursorDrawable="@color/defaultBackgroundColor"
             android:textSize="@dimen/default_text_size" />
 
-        <!--        <TextView-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="20dp"-->
-        <!--            android:layout_gravity="center_horizontal"-->
-        <!--            android:text="@string/wrong_login_data"-->
-        <!--            />-->
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="20dp">
 
             <Button
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:clickable="true"
                 android:onClick="onLoginButtonClick"
                 android:text="@string/enter"
-                android:textColor="@color/colorPrimary"
-                android:clickable="true"
-                />
+                android:textColor="@color/colorPrimary" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -95,8 +86,7 @@
                 android:layout_gravity="center"
                 android:elevation="24dp"
                 android:indeterminateTint="@color/colorPrimary"
-                android:visibility="gone"
-                />
+                android:visibility="gone" />
         </FrameLayout>
 
 

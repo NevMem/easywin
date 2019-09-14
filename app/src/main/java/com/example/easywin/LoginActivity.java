@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((EasyWinApp) getApplication()).getAppComponent().inject(this);
-        setContentView(R.layout.activity_loggin);
+        setContentView(R.layout.activity_login);
 
         setUpEnterAnimations();
         loginButton = findViewById(R.id.login_button);

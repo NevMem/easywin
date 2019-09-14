@@ -12,6 +12,6 @@
         android:gravity="center|left"
         android:paddingLeft="16dp"
         android:textColor="@color/defaultBackgroundColor"
-        android:text="@string/top_bar_logo" />
+        android:text="@string/app_name" />
 
 </FrameLayout>

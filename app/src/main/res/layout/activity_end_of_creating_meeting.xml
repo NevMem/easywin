@@ -109,12 +109,16 @@
                 android:textSize="28sp"
                 android:text="ЗАВЕРШИТЬ" />
 
-            <EditText
+            <TextView
+                android:padding="16dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginEnd="64dp"
                 android:id="@+id/explain3Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 android:background="@drawable/secondary_info_back"
+                tools:visibility="visible"
                 android:text="@string/expalain_wait_state" />
 
         </LinearLayout>

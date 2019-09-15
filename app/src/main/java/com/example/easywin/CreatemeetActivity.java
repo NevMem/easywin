@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.network.ErrorState;
 import com.example.network.PendingState;
@@ -21,6 +22,7 @@ import javax.inject.Inject;
 public class CreatemeetActivity extends AppCompatActivity {
     EditText editText;
     Button button;
+    TextView top_bar_textView;
 
     @Inject
     RoomHolder roomHolder;
@@ -29,6 +31,10 @@ public class CreatemeetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.createmeet);
+
+        top_bar_textView = findViewById(R.id.kek);
+        top_bar_textView.setText("Создать счёт");
+
 
         ((EasyWinApp) getApplicationContext()).getAppComponent().inject(this);
 

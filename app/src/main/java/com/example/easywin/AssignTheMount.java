@@ -101,10 +101,10 @@ public class AssignTheMount extends AppCompatActivity {
         final Button baton = findViewById(R.id.button3);
 
         final AppCompatActivity thisActivity = this;
-        final Set<String> names = values.keySet();
         listViewNames.removeAllViews();
         total_summary = Calculate();
-        for(final String name : names){
+        for(final UserData userData : lastRoomInfo.getUsers()){
+            final String name = userData.getName();
             final LayoutInflater inflater = LayoutInflater.from(this);
             View child = inflater.inflate(R.layout.user_row, listViewNames, false);
             ((TextView)child.findViewById(R.id.name)).setText(name);
@@ -112,7 +112,7 @@ public class AssignTheMount extends AppCompatActivity {
 
             child.findViewById(R.id.transOverNamesList).setVisibility(View.VISIBLE);
             listViewNames.addView(child);
-            
+
             if (mode == RoomHolderState.JOINED) {
                 if (!values.get(name).equals(0)) {
                     button.setText(Integer.valueOf(values.get(name)).toString());

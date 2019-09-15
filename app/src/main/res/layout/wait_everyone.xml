@@ -47,6 +47,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="23"
+                        android:id="@+id/payyed"
                         android:textColor="@color/themeColor"
                         android:textSize="28sp" />
 
@@ -61,6 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/themeColor"
+                        android:id="@+id/all"
                         tools:text="23"
                         android:textSize="34sp" />
                 </LinearLayout>

@@ -9,7 +9,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.example.network.*
 import com.example.network.services.InvoiceInfoResponce
-import kotlinx.android.synthetic.main.user_row.view.*
 import kotlinx.android.synthetic.main.wait_everyone.*
 import kotlinx.android.synthetic.main.wait_row.view.*
 import javax.inject.Inject
@@ -18,6 +17,7 @@ class WaitEveryoneActivity : AppCompatActivity() {
     val list = ArrayList<View>()
     @SuppressLint("UseSparseArrays")
     val map = HashMap<Int, LiveData<RequestState<InvoiceInfoResponce>>>()
+    val set = HashSet<Int>()
 
     @Inject
     lateinit var userHolder: UserHolder
@@ -58,19 +58,27 @@ class WaitEveryoneActivity : AppCompatActivity() {
                 list[index].userName.text = user.name
                 list[index].amount.text = user.amount.toString()
 
+                if (!set.contains(index)) {
+                    list[index].progress.visibility = View.VISIBLE
+                    list[index].success.visibility = View.GONE
+                } else {
+                    list[index].progress.visibility = View.GONE
+                    list[index].success.visibility = View.VISIBLE
+                }
+
                 if (user.invoiceNumber != null && !map.containsKey(index)) {
                     val liveData = networkProvider.getInvoiceState(810, user.invoiceNumber!!, it.owner.deviceId!!)
                     map[index] = liveData
                     liveData.observe(this, Observer {
-                        list[index].progress.visibility = View.GONE
-                        list[index].success.visibility = View.VISIBLE
-                        if (it is SuccessState) {
-                            list[index].progress.visibility = View.VISIBLE
-                            list[index].success.visibility = View.GONE
+                        if (it is SuccessState && it.payload.data.state == 5) {
+                            set.add(index)
                         }
                     })
                 }
             }
+
+            payyed.text = set.size.toString()
+            all.text = list.size.toString()
         })
     }
 

@@ -10,4 +10,6 @@ interface UserHolder {
     fun tryLogin(login: String, password: String): LiveData<RequestState<UserData>>
 
     fun getBalance(currencyCode: Int): LiveData<RequestState<Double>>
+
+    fun getTrueBalance(): Double?
 }

@@ -49,7 +49,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
 
-            android:text="47€"
+            android:text="0€"
             style="@style/InfoTextStyle"
             app:layout_constraintStart_toEndOf="@id/balance_textview_firstcurr"
             app:layout_constraintTop_toBottomOf="@id/username_textview" />
@@ -61,7 +61,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
 
-            android:text="322$"
+            android:text="0$"
             style="@style/InfoTextStyle"
             app:layout_constraintStart_toEndOf="@id/balance_textview_secondcurr"
             app:layout_constraintTop_toBottomOf="@id/username_textview"
@@ -75,7 +75,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
 
-            android:text="1488£"
+            android:text="0£"
             style="@style/InfoTextStyle"
             app:layout_constraintStart_toEndOf="@id/balance_textview_thirdcurr"
             app:layout_constraintTop_toBottomOf="@id/username_textview"

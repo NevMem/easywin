@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.easywin.R
+import kotlinx.android.synthetic.main.fragment_top_bar.view.*
 
 class NotificationsFragment: Fragment() {
 
@@ -18,6 +19,11 @@ class NotificationsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.main_page, container, false)
+        return inflater.inflate(R.layout.notifications_activity, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.kek.text = "Мои уведомления"
     }
 }

@@ -5,24 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/defaultBackgroundColor"
+    android:clipToPadding="false"
     android:orientation="vertical"
-    tools:context=".JoinActivity"
-    android:clipToPadding="false">
+    tools:context=".JoinActivity">
 
     <fragment
         android:id="@+id/top_bar"
-        android:tag="join activity"
+        android:name="com.example.easywin.fragments.TopBarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.example.easywin.fragments.TopBarFragment"
-        />
+        android:tag="join activity" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:clipChildren="false"
         android:clipToPadding="false"
+        android:orientation="vertical"
         android:paddingBottom="16dp">
 
         <TextView
@@ -31,9 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="20dp"
             android:text="@string/meeting_name"
-            android:textSize="20dp" />
+            android:textSize="@dimen/header_text_size" />
 
         <EditText
             android:id="@+id/meeting_id"
@@ -41,20 +39,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="30dp"
+            android:backgroundTint="@color/themeColor"
             android:hint="@string/join_with_id"
             android:inputType="textPersonName"
-            android:backgroundTint="@color/themeColor"
+            android:textColor="@color/design_default_color_on_secondary"
             android:textCursorDrawable="@color/design_default_color_on_secondary"
-            android:textColor="@color/design_default_color_on_secondary" />
+            android:textSize="@dimen/default_text_size" />
 
         <Button
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BorderlessButton"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
             android:onClick="onQrButtonClick"
-            android:textColor="@color/grayTextColor"
             android:text="@string/join_with_qr" />
 
     </LinearLayout>
@@ -72,8 +70,19 @@
             android:layout_gravity="bottom|center_horizontal"
             android:layout_margin="20dp"
             android:background="@color/themeColor"
+            android:onClick="onJoinButtonClick"
             android:text="@string/join_button"
-            android:textColor="@color/defaultBackgroundColor" />
+            android:textColor="@color/defaultBackgroundColor"
+            android:textSize="@dimen/default_text_size" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/defaultBackgroundColor"
+            android:onClick="onQrButtonClick"
+            app:srcCompat="@drawable/qr_code_picture" />
 
     </FrameLayout>
 

@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -28,6 +30,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':network')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
@@ -38,4 +41,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
     implementation 'com.google.android.material:material:1.1.0-alpha07'
+
+    // Dagger
+    api 'com.google.dagger:dagger-android:2.15'
+    api 'com.google.dagger:dagger-android-support:2.15'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.21'
+
+    kapt 'com.google.dagger:dagger-android-processor:2.21'
+    kapt 'com.google.dagger:dagger-compiler:2.21'
+
+    implementation "io.reactivex.rxjava3:rxjava:3.0.0-RC2"
 }

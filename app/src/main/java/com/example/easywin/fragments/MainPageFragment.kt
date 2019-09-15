@@ -26,6 +26,11 @@ class MainPageFragment : Fragment() {
             startActivity(intent)
         }
 
+        view.topPanel.setOnClickListener {
+            var intent = Intent(context, UserInfoActivity::class.java)
+            startActivity(intent)
+        }
+
         view.create_lobby_button.setOnClickListener {
             //val intent = Intent(context, CreatemeetActivity::class.java)
             //startActivity(intent)
@@ -34,6 +39,8 @@ class MainPageFragment : Fragment() {
             val intent = Intent(context, AssignTheMount::class.java)
             startActivity(intent)
         }
+
+
     }
 
 }

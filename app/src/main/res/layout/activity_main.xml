@@ -19,12 +19,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FF0000"
+        android:background="@drawable/bottom_view_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/main_page_navigation_view"
         app:menu="@menu/main_page_navigation"
+        android:elevation="4dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

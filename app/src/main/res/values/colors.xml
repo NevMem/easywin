@@ -3,6 +3,8 @@
     <color name="colorPrimary">#005A99</color>
     <color name="colorAccent">#32FF77</color>
     <color name="colorPrimaryDark">#003C64</color>
+    <color name="mainTextColor">#0a2973</color>
+    <color name="logoBackgroundColor">#5CBCEB</color>
     <color name="themeColor">#005a99</color>
     <color name="defaultBackgroundColor">#f0f5f9</color>
     <color name="defaultTransBackgroundColor">#E2F0F5F9</color>

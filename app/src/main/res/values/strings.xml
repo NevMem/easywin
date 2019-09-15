@@ -2,6 +2,12 @@
     <string name="app_name">easywin</string>
     <string name="meeting_name">Информация о встрече</string>
     <string name="join_with_id">Введите id</string>
-    <string name="join_with_qr">Использовать QR код</string>
+    <string name="join_with_qr">Сканировать QR код</string>
     <string name="join_button">Присоединиться</string>
+    <string name="login_header">Здарова</string>
+    <string name="create_new_account">Создать аккаунт</string>
+    <string name="login">Логин:</string>
+    <string name="password">Пароль:</string>
+    <string name="enter">Войти</string>
+    <string name="wrong_login_data">Неверные данные пользователя</string>
 </resources>

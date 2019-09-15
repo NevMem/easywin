@@ -8,4 +8,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MainPageButtonStyle" parent="TextAppearance.AppCompat.Button">
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">26dp</item>
+        <item name="android:fontFamily">@font/open_sans_light</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="InfoTextStyle">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BorderlessButton" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/grayTextColor</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
 </resources>

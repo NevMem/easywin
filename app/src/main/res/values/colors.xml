@@ -6,6 +6,7 @@
     <color name="mainTextColor">#0a2973</color>
     <color name="logoBackgroundColor">#5CBCEB</color>
     <color name="themeColor">#005a99</color>
+    <color name="themeSecondaryColor">#B07D838A</color>
     <color name="defaultBackgroundColor">#f0f5f9</color>
     <color name="defaultTransBackgroundColor">#E2F0F5F9</color>
     <color name="secondaryButtonColor">#E6ECF2</color>

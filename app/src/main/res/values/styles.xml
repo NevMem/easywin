@@ -1,4 +1,4 @@
-<resources>
+<resources  xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -31,7 +31,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/default_text_size</item>
     </style>
-    
+
     <style name="CustomDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/themeColor</item>
         <item name="android:textColorPrimary">@color/themeColor</item>

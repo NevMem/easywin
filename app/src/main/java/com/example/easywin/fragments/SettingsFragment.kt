@@ -27,7 +27,7 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.kek.text = "Настройки"
+        view.kek.text = getText(R.string.settings)
         view.test_activity_button.setOnClickListener{
             var intent = Intent(context, TestActivity::class.java)
             startActivity(intent)

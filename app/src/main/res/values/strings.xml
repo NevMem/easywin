@@ -9,6 +9,7 @@
     <string name="join_string">ЗАЙТИ</string>
     <string name="room_number">Комната</string>
     <string name="login_header">Здарова</string>
+    <string name="login_header">ГРУППОВЫЕ СЧЕТА</string>
     <string name="create_new_account">Создать аккаунт</string>
     <string name="login">Логин:</string>
     <string name="password">Пароль:</string>
@@ -19,4 +20,7 @@
     <string name="party_name_hint">Название вечеринки</string>
     <string name="explaint2Text">Это первый этап создания вечеринки дальше вы сможете подключить к ней своих друзей и разделить ваш счет</string>
     <string name="expalain_wait_state">Ожидайте пока создатель добавляет всех участников тусовки</string>
+    <string name="history">История</string>
+    <string name="alert">Уведомления</string>
+    <string name="settings">Настройки</string>
 </resources>

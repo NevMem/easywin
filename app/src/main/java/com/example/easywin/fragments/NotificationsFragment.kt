@@ -24,6 +24,6 @@ class NotificationsFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.kek.text = "Уведомления"
+        view.kek.text = getString(R.string.alert)
     }
 }

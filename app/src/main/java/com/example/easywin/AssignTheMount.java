@@ -63,6 +63,7 @@ public class AssignTheMount extends AppCompatActivity {
                     goToNextStep();
                 }
                 lastRoomInfo = roomInfo;
+                fill_listview();
                 if (mode == RoomHolderState.JOINED) {
                     for (UserData user : roomInfo.getUsers()) {
                         values.put(user.getName(), user.getAmount());

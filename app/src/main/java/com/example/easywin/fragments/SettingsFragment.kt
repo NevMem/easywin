@@ -1,14 +1,17 @@
 package com.example.easywin.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.easywin.R
-import kotlinx.android.synthetic.main.fragment_top_bar.*
+import com.example.easywin.TestActivity
+import kotlinx.android.synthetic.main.activity_setting.view.*
+import kotlinx.android.synthetic.main.fragment_top_bar.view.*
 
-class SettingsFragment: Fragment() {
+class SettingsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,8 @@ class SettingsFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        kek.text = "Настройки"
+        view.kek.text = "Настройки"
     }
+
+
 }

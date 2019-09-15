@@ -8,7 +8,7 @@ interface NetworkProvider {
 
     fun makeSession(deviceId: String): Observable<RequestState<FastPaySession>>
 
-    fun createInvoice(amount: Int, number: String, description: String): LiveData<RequestState<InvoiceResult>>
+    fun createInvoice(sessionId: String, payer: String, recipient: String, amount: Int, number: String, description: String): LiveData<RequestState<InvoiceResult>>
 
     fun createRoom(login: String, roomName: String): Observable<RequestState<RoomInfo>>
 
@@ -20,5 +20,7 @@ interface NetworkProvider {
 
     fun gotoLastStage(roomId: Int)
 
+    fun getUserBalance(sessionId: String, address: String, currencyCode: Int): Observable<RequestState<Double>>
+  
     fun updateServerInfo(roomId: Int, roomInfo: RoomInfo)
 }

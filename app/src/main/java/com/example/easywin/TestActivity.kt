@@ -44,24 +44,5 @@ class TestActivity : AppCompatActivity() {
                 }
             })
         }
-
-        createSession.setOnClickListener {
-            sessionHolder.makeSession()
-                .observe(this, Observer {
-                    if (it == null)
-                        return@Observer
-                    when (it) {
-                        is PendingState -> sessionLoading.visibility = View.VISIBLE
-                        is ErrorState -> {
-                            sessionLoading.visibility = View.GONE
-                            sessionText.text = it.error
-                        }
-                        is SuccessState -> {
-                            sessionLoading.visibility = View.GONE
-                            sessionText.text = it.payload.sessionId
-                        }
-                    }
-                })
-        }
     }
 }

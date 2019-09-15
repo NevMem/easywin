@@ -60,14 +60,15 @@ class NetworkProviderImpl : NetworkProvider {
         recipient: String,
         amount: Int,
         number: String,
-        description: String
+        description: String,
+        login: String
     ): LiveData<RequestState<InvoiceResult>> {
         val liveData = MutableLiveData<RequestState<InvoiceResult>>()
         liveData.postValue(PendingState())
 
         fastPayService
             .invoice(sessionId, InvoiceBody(payer, recipient, amount, 810, description, number))
-            .enqueue(CreateInvoiceCallback(number, liveData))
+            .enqueue(CreateInvoiceCallback(number, login, liveData))
 
         return liveData
     }
@@ -161,6 +162,8 @@ class NetworkProviderImpl : NetworkProvider {
                         it.onNext(state)
                     }
                 }))
+        }
+    }
           
     override fun updateServerInfo(roomId: Int, roomInfo: RoomInfo) {
         GlobalScope.launch {

@@ -8,7 +8,7 @@ interface NetworkProvider {
 
     fun makeSession(deviceId: String): Observable<RequestState<FastPaySession>>
 
-    fun createInvoice(sessionId: String, payer: String, recipient: String, amount: Int, number: String, description: String): LiveData<RequestState<InvoiceResult>>
+    fun createInvoice(sessionId: String, payer: String, recipient: String, amount: Int, number: String, description: String, login: String): LiveData<RequestState<InvoiceResult>>
 
     fun createRoom(login: String, roomName: String): Observable<RequestState<RoomInfo>>
 

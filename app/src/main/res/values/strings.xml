@@ -10,4 +10,7 @@
     <string name="password">Пароль:</string>
     <string name="enter">Войти</string>
     <string name="wrong_login_data">Неверные данные пользователя</string>
+    <string name="history">История</string>
+    <string name="alert">Уведомления</string>
+    <string name="settings">Настройки</string>
 </resources>

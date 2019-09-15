@@ -119,10 +119,10 @@ public class AssignTheMount extends AppCompatActivity {
             listViewNames.addView(child);
 
             if (mode == RoomHolderState.JOINED) {
+                button.setText(R.string.wait_string);
                 if (values.containsKey(name) && !values.get(name).equals(0)) {
                     button.setText(Integer.valueOf(values.get(name)).toString());
                 }
-                button.setText(R.string.wait_string);
                 continue;
             }
 
@@ -200,14 +200,10 @@ public class AssignTheMount extends AppCompatActivity {
 
     int Calculate(){
         int sum = 0;
-        final Set<String> names = values.keySet();
-        int n = names.size();
-        List<String> aList = new ArrayList<String>(n);
-        for (String x : names)
-            aList.add(x);
-
-        for(int i = 0; i < n;i++){
-            sum += (values.get(aList.get(i)));
+        if (lastRoomInfo != null) {
+            for (UserData userData : lastRoomInfo.getUsers()) {
+                sum += userData.getAmount();
+            }
         }
         return sum;
     }

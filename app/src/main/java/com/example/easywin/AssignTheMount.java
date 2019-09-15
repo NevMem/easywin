@@ -110,6 +110,9 @@ public class AssignTheMount extends AppCompatActivity {
             ((TextView)child.findViewById(R.id.name)).setText(name);
             final Button button = ((Button) child.findViewById(R.id.assignMoney));
 
+            child.findViewById(R.id.transOverNamesList).setVisibility(View.VISIBLE);
+            listViewNames.addView(child);
+            
             if (mode == RoomHolderState.JOINED) {
                 if (!values.get(name).equals(0)) {
                     button.setText(Integer.valueOf(values.get(name)).toString());
@@ -152,8 +155,6 @@ public class AssignTheMount extends AppCompatActivity {
                     dialog.show();
                 }
             });
-            child.findViewById(R.id.transOverNamesList).setVisibility(View.VISIBLE);
-            listViewNames.addView(child);
 
             if(checkTotalSum()){
                 //final Button baton = ((Button) child.findViewById(R.id.button3));

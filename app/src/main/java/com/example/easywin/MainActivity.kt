@@ -1,5 +1,6 @@
 package com.example.easywin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
@@ -50,6 +51,5 @@ class MainActivity : AppCompatActivity() {
         anchor.isUserInputEnabled = false
 
         main_page_navigation_view.selectedItemId = R.id.homeNavigation
-
     }
 }

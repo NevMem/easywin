@@ -52,10 +52,10 @@ class MainPageFragment : Fragment() {
         }
 
         view.create_lobby_button.setOnClickListener {
-            //val intent = Intent(context, CreatemeetActivity::class.java)
-            //startActivity(intent)
-            val intent = Intent(context, EndOfCreatingMeeting::class.java)
+            val intent = Intent(context, CreatemeetActivity::class.java)
             startActivity(intent)
+            // val intent = Intent(context, EndOfCreatingMeeting::class.java)
+            // startActivity(intent)
             //val intent = Intent(context, AssignTheMount::class.java)
             //startActivity(intent)
         }

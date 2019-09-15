@@ -1,9 +1,6 @@
 package com.example.easywin.dagger.modules
 
-import com.example.easywin.SessionHolder
-import com.example.easywin.SessionHolderImpl
-import com.example.easywin.UserHolder
-import com.example.easywin.UserHolderImpl
+import com.example.easywin.*
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -17,4 +14,9 @@ class DataModule {
     @Singleton
     @Provides
     fun providesSessionHolder(impl: SessionHolderImpl): SessionHolder = impl
+
+
+    @Singleton
+    @Provides
+    fun providesCurrentManagingRoomHodler(impl: RoomHolderImpl): RoomHolder = impl
 }

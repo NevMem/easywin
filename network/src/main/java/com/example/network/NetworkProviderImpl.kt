@@ -2,14 +2,14 @@ package com.example.network
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.network.callbacks.CreateInvoiceCallback
-import com.example.network.callbacks.LoginRequestCallback
-import com.example.network.callbacks.SessionRequestCallback
+import com.example.network.callbacks.*
 import com.example.network.services.BackendService
 import com.example.network.services.FastPayService
 import com.example.network.services.InvoiceBody
 import com.example.network.services.SessionRequest
 import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -70,5 +70,66 @@ class NetworkProviderImpl : NetworkProvider {
             .enqueue(CreateInvoiceCallback(number, liveData))
 
         return liveData
+    }
+
+    override fun createRoom(login: String, roomName: String): Observable<RequestState<RoomInfo>> {
+        return Observable.create {
+            backendService
+                .createRoom(CreateRoomRequest(login, roomName))
+                .enqueue(CreateRoomRequestCallback(object : RequestStateListener<RequestState<RoomInfo>> {
+                    override fun stateUpdated(state: RequestState<RoomInfo>) {
+                        it.onNext(state)
+                        if (state is SuccessState) {
+                            it.onComplete()
+                        }
+                    }
+                }))
+        }
+    }
+
+    override fun loadRoomInfo(roomName: String): Observable<RequestState<RoomInfo>> {
+        return Observable.create {
+            backendService
+                .loadRoomInfo(RoomIdRequest(roomName))
+                .enqueue(LoadRoomInfoRequestCallback(object : RequestStateListener<RequestState<RoomInfo>> {
+                    override fun stateUpdated(state: RequestState<RoomInfo>) {
+                        it.onNext(state)
+                        if (state is SuccessState) {
+                            it.onComplete()
+                        }
+                    }
+                }))
+        }
+    }
+
+    override fun join(login: String, roomId: Int): Observable<RequestState<RoomInfo>> {
+        return Observable.create {
+            backendService
+                .join(JoinRequest(login, roomId))
+                .enqueue(JoinRequestCallback(object : RequestStateListener<RequestState<RoomInfo>> {
+                    override fun stateUpdated(state: RequestState<RoomInfo>) {
+                        it.onNext(state)
+                        if (state is SuccessState) {
+                            it.onComplete()
+                        }
+                    }
+                }))
+        }
+    }
+
+    override fun gotoPickMoney(roomId: String) {
+        GlobalScope.launch {
+            backendService
+                .gotoPickMoney(RoomIdRequest(roomId))
+                .execute()
+        }
+    }
+
+    override fun gotoLastStage(roomId: String) {
+        GlobalScope.launch {
+            backendService
+                .gotoLastStage(RoomIdRequest(roomId))
+                .execute()
+        }
     }
 }

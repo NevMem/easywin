@@ -1,5 +1,6 @@
 package com.example.easywin.dagger
 
+import com.example.easywin.*
 import com.example.easywin.LoginActivity
 import com.example.easywin.MainActivity
 import com.example.easywin.TestActivity
@@ -16,6 +17,9 @@ interface AppComponent {
     fun inject(testActivity: TestActivity)
     fun inject(mainActivity: MainActivity)
     fun inject(loginActivity : LoginActivity)
+    fun inject(createmeetActivity: CreatemeetActivity)
+    fun inject(endOfCreatingMeeting: EndOfCreatingMeeting)
+    fun inject(joinActivity: JoinActivity)
     fun inject(mainPageFragment: MainPageFragment)
     fun inject(userViewModel: UserViewModel)
 }

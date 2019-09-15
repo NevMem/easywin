@@ -17,16 +17,32 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <fragment
+                android:id="@+id/topBar"
+                android:name="com.example.easywin.fragments.TopBarFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <TextView
                 android:id="@+id/textViewOfNameLobby"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginRight="40dp"
-                android:text="Название"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textColor="@color/themeColor"
+                android:textSize="38sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="40dp"
+                android:text="Название вечеринки"
+                android:textAlignment="center"
+                android:textSize="14sp" />
 
             <LinearLayout
                 android:id="@+id/list_of_names"
@@ -59,32 +75,47 @@
                 android:layout_marginRight="70dp"
                 android:layout_weight="1"
                 android:text="Название"
+                android:textColor="@color/themeColor"
                 android:textAlignment="center"
-                android:textSize="18sp" />
+                android:textSize="32sp" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/qrCodeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="64dp"
                 android:layout_marginTop="34dp"
-                android:layout_marginRight="100dp"
+                android:layout_marginRight="64dp"
                 android:background="@color/errorColor"
                 android:onClick="OnClick"
                 android:text="QR код"
+                android:padding="8dp"
+                android:textColor="@android:color/white"
+                android:textSize="28sp"
                 android:textAlignment="center" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/finishButton"
+                android:padding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="64dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="100dp"
+                android:layout_marginRight="64dp"
                 android:layout_marginBottom="50dp"
                 android:background="@color/themeColor"
+                android:textColor="@android:color/white"
                 android:onClick="onEndOfCreateingButtonClick"
+                android:textSize="28sp"
                 android:text="ЗАВЕРШИТЬ" />
+
+            <EditText
+                android:id="@+id/explain3Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:background="@drawable/secondary_info_back"
+                android:text="@string/expalain_wait_state" />
 
         </LinearLayout>
     </ScrollView>

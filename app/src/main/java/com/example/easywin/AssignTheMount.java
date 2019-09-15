@@ -119,14 +119,14 @@ public class AssignTheMount extends AppCompatActivity {
             listViewNames.addView(child);
 
             if (mode == RoomHolderState.JOINED) {
-                if (!values.get(name).equals(0)) {
+                if (values.containsKey(name) && !values.get(name).equals(0)) {
                     button.setText(Integer.valueOf(values.get(name)).toString());
                 }
                 button.setText(R.string.wait_string);
                 continue;
             }
 
-            if (!values.get(name).equals(0)) {
+            if (values.containsKey(name) && !values.get(name).equals(0)) {
                 button.setText(Integer.valueOf(values.get(name)).toString());
             }
 
@@ -136,7 +136,7 @@ public class AssignTheMount extends AppCompatActivity {
 
                     final View view = inflater.inflate(R.layout.dialog_signin, null, false);
 
-                    if (!values.get(name).equals(0)) {
+                    if (values.containsKey(name) && !values.get(name).equals(0)) {
                         ((EditText) view.findViewById(R.id.countText)).setText(Integer.valueOf(values.get(name)).toString());
                     }
 

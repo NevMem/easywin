@@ -1,14 +1,14 @@
 package com.example.easywin
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.example.network.NetworkProvider
-import com.example.network.RoomInfo
-import com.example.network.SuccessState
-import com.example.network.Utils
+import com.example.network.*
+import com.example.network.services.InvoiceInfoResponce
 import kotlinx.android.synthetic.main.user_row.view.*
 import kotlinx.android.synthetic.main.wait_everyone.*
 import kotlinx.android.synthetic.main.wait_row.view.*
@@ -16,6 +16,8 @@ import javax.inject.Inject
 
 class WaitEveryoneActivity : AppCompatActivity() {
     val list = ArrayList<View>()
+    @SuppressLint("UseSparseArrays")
+    val map = HashMap<Int, LiveData<RequestState<InvoiceInfoResponce>>>()
 
     @Inject
     lateinit var userHolder: UserHolder
@@ -51,6 +53,10 @@ class WaitEveryoneActivity : AppCompatActivity() {
                 list[index].name.text = user.name
                 list[index].amount.text = user.amount.toString()
 
+                if (user.invoiceNumber != null && !map.containsKey(index)) {
+                    val liveData = networkProvider.getInvoiceState(810, user.invoiceNumber!!, it.owner.deviceId!!)
+                }
+
                 if (user.payed!!) {
                     list[index].progress.visibility = View.VISIBLE
                     list[index].success.visibility = View.GONE
@@ -75,7 +81,8 @@ class WaitEveryoneActivity : AppCompatActivity() {
                             roomInfo.owner.deviceId!!,
                             it.amount!!,
                             Utils.createRandomString(),
-                            roomInfo.roomName) }
+                            roomInfo.roomName,
+                            it.login!!) }
                         .forEach { curIt ->
                             curIt.observe(this, Observer {
                                  if (it is SuccessState) {

@@ -138,15 +138,15 @@ class NetworkProviderImpl : NetworkProvider {
         currencyCode: Int,
         number: String,
         recipient: String
-    ): Observable<RequestState<InvoiceInfoResponce>> {
-        return Observable.create{
+    ): LiveData<RequestState<InvoiceInfoResponce>> {
+        val liveData = MutableLiveData<RequestState<InvoiceInfoResponce>>()
             fastPayService.getInvoiceInfo(currencyCode, number, recipient)
                 .enqueue(getInvoiceInfoCallback(object : RequestStateListener<RequestState<InvoiceInfoResponce>> {
                     override fun stateUpdated(state: RequestState<InvoiceInfoResponce>) {
-                        it.onNext(state)
+                        liveData.postValue(state)
                     }
                 }))
-        }
+        return liveData
     }
 
     override fun getUserBalance(

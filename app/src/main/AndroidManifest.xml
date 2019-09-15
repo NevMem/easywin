@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".QrActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".TestActivity" />
         <activity android:name=".JoinActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".QrActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

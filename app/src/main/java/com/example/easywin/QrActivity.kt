@@ -1,6 +1,7 @@
 package com.example.easywin
 
 import android.Manifest
+import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.util.Rational
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
+import androidx.core.animation.addListener
 import androidx.core.app.ActivityCompat
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
@@ -17,6 +19,7 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.common.FirebaseVisionImageMetadata
 import kotlinx.android.synthetic.main.qr_activity.*
 import org.json.JSONObject
+import kotlin.math.sqrt
 
 class QrActivity : AppCompatActivity() {
     companion object {
@@ -27,11 +30,18 @@ class QrActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.qr_activity)
 
+        val intentMode = intent.extras?.get("mode") as? String
+        if (intentMode != null) {
+            if (intentMode == "pay") {
+                mode = Mode.PAY
+            } else if (intentMode == "join") {
+                mode = Mode.JOIN
+            }
+        }
+
         if (!isCameraGranted()) {
-            Log.d("camera", "denied")
             requestCamera()
         } else {
-            Log.d("camera", "granted")
             updateCamera()
         }
     }
@@ -48,19 +58,41 @@ class QrActivity : AppCompatActivity() {
         SHOWED
     }
 
+    enum class Mode {
+        JOIN,
+        PAY
+    }
+
     private var currentState = State.NONE
+    private var mode = Mode.JOIN
 
     private var currentAddress: String? = null
+    private var roomId: Int? = null
 
     private fun updateState(json: JSONObject) {
-        val address = json.optString("address")
-        if (currentAddress == null) {
-            currentAddress = address
+        if (mode == Mode.PAY) {
+            val address = json.optString("address")
+            if (address.isNotEmpty()) {
+                currentAddress = address
+            }
+        } else {
+            val roomId = json.optInt("roomId", -1)
+            if (roomId != -1) {
+                this.roomId = roomId
+            }
         }
-        if (currentAddress != null && currentState == State.NONE) {
+        if ((currentAddress != null || roomId != null) && currentState == State.NONE) {
             currentState = State.UPDATING
 
             actionButton.visibility = View.VISIBLE
+
+            if (mode == Mode.PAY) {
+                actionButton.text = resources.getText(R.string.pay_string)
+            } else {
+                actionButton.text = resources.getText(R.string.join_string)
+                headerText.visibility = View.VISIBLE
+                headerText.text = resources.getText(R.string.room_number).toString() + " $roomId"
+            }
 
             val animator = ValueAnimator.ofFloat(0f, 1f)
             animator.duration = 300
@@ -71,7 +103,19 @@ class QrActivity : AppCompatActivity() {
                 actionButton.scaleY = (.75f + .25f * fraction)
                 actionButton.translationY = (200f * (1 - fraction))
                 actionButton.alpha = fraction
+
+                if (mode == Mode.JOIN) {
+                    headerText.alpha = sqrt(fraction.toDouble()).toFloat()
+                }
             }
+
+            animator.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationRepeat(p0: Animator?) {}
+                override fun onAnimationEnd(p0: Animator?) { currentState = State.SHOWED }
+                override fun onAnimationCancel(p0: Animator?) {}
+                override fun onAnimationStart(p0: Animator?) {}
+
+            })
 
             animator.start()
         }

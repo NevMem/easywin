@@ -56,16 +56,18 @@ public class AssignTheMount extends AppCompatActivity {
     }
 
     public static class AssignMoney extends DialogFragment{
+        String count = "";
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.CustomDialogStyle);
-            LayoutInflater inflater = getActivity().getLayoutInflater();
+            final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),R.style.CustomDialogStyle);
+            final LayoutInflater inflater = getActivity().getLayoutInflater();
 
+            //final View vw = inflater.inflate(R.layout.dialog_signin, null);
             builder.setView(inflater.inflate(R.layout.dialog_signin, null))
                     .setPositiveButton("Принять",new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            // sign in the user ...
+                            //count = vw.;
                         }
                     })
                     .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {

@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         anchor.isUserInputEnabled = false
 
         main_page_navigation_view.selectedItemId = R.id.homeNavigation
-
     }
 
     override fun onResume() {

@@ -46,6 +46,7 @@ class WaitEveryoneActivity : AppCompatActivity() {
                 it.users.forEach { user ->
                     val view = layoutInflater.inflate(R.layout.wait_row, infoAnchor, false)
                     infoAnchor.addView(view)
+                    list.add(view)
                 }
             }
 

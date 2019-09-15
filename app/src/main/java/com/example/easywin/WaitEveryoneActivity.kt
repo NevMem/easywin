@@ -43,7 +43,9 @@ class WaitEveryoneActivity : AppCompatActivity() {
             if (it == null)
                 return@Observer
             if (list.isEmpty()) {
-                initializeInvoices(it)
+                if (roomHolder.state() == RoomHolderState.MANAGE) {
+                    initializeInvoices(it)
+                }
 
                 it.users.forEach { user ->
                     val view = layoutInflater.inflate(R.layout.wait_row, infoAnchor, false)

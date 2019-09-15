@@ -132,4 +132,12 @@ class NetworkProviderImpl : NetworkProvider {
                 .execute()
         }
     }
+
+    override fun updateServerInfo(roomId: Int, roomInfo: RoomInfo) {
+        GlobalScope.launch {
+            backendService
+                .updateServer(UpdateRoomInfoRequest(roomId, roomInfo))
+                .execute()
+        }
+    }
 }

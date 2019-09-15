@@ -19,4 +19,6 @@ interface NetworkProvider {
     fun gotoPickMoney(roomId: Int)
 
     fun gotoLastStage(roomId: Int)
+
+    fun updateServerInfo(roomId: Int, roomInfo: RoomInfo)
 }

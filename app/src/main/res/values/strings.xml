@@ -22,4 +22,5 @@
     <string name="history">История</string>
     <string name="alert">Уведомления</string>
     <string name="settings">Настройки</string>
+    <string name="wait_string">WAITING</string>
 </resources>

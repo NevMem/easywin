@@ -32,4 +32,9 @@
         <item name="android:textSize">@dimen/default_text_size</item>
     </style>
 
+    <style name="SwitchStyle" parent="Theme.AppCompat.Light">
+        <!-- активное состояние (30% прозрачности для фона) -->
+        <item name="colorControlActivated">@color/themeColor</item>
+    </style>
+
 </resources>

@@ -24,6 +24,6 @@ class HistoryFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.kek.text = "Моя история"
+        view.kek.text = "История"
     }
 }

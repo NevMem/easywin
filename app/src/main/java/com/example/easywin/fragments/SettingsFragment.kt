@@ -22,19 +22,12 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_setting, container, false)
+        return inflater.inflate(R.layout.settings_page, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         view.kek.text = "Настройки"
-
-        view.test_activity_button.setOnClickListener{
-            var intent = Intent(context, TestActivity::class.java)
-            startActivity(intent)
-        }
-
     }
 
 

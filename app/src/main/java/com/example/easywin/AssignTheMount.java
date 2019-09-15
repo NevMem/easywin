@@ -103,6 +103,10 @@ public class AssignTheMount extends AppCompatActivity {
         final AppCompatActivity thisActivity = this;
         listViewNames.removeAllViews();
         total_summary = Calculate();
+
+        if (lastRoomInfo == null)
+            return;
+
         for(final UserData userData : lastRoomInfo.getUsers()){
             final String name = userData.getName();
             final LayoutInflater inflater = LayoutInflater.from(this);

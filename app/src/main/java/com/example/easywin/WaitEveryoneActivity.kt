@@ -51,7 +51,7 @@ class WaitEveryoneActivity : AppCompatActivity() {
             }
 
             it.users.forEachIndexed { index, user ->
-                list[index].name.text = user.name
+                list[index].userName.text = user.name
                 list[index].amount.text = user.amount.toString()
 
                 if (user.invoiceNumber != null && !map.containsKey(index)) {

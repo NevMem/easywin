@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="qr activity"
+            android:id="@+id/qr_activity_button"
             app:layout_constraintTop_toBottomOf="@id/test_activity_button"
             android:layout_marginTop="30dp"
             app:layout_constraintStart_toStartOf="parent"

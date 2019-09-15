@@ -37,7 +37,7 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_history, container, false);
 
-        ((TextView)rootView.findViewById(R.id.kek)).setText(getText(R.string.history));
+        ((TextView) rootView.findViewById(R.id.kek)).setText(getText(R.string.history));
 
         RecyclerView recyclerView = rootView.findViewById(R.id.history_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -48,16 +48,14 @@ public class HistoryFragment extends Fragment {
     }
 
     private void initData() {
-        data.add(new HistoryRecord("Alex", "100", "23"));
-        data.add(new HistoryRecord("Alex", "70", "100"));
-        data.add(new HistoryRecord("Alex", "100", "85"));
-        data.add(new HistoryRecord("Alex", "100", "23"));
-        data.add(new HistoryRecord("Alex", "70", "100"));
-        data.add(new HistoryRecord("Alex", "100", "85"));
-        data.add(new HistoryRecord("Alex", "100", "23"));
-        data.add(new HistoryRecord("Alex", "70", "100"));
-        data.add(new HistoryRecord("Alex", "100", "85"));
 
+        data.add(new HistoryRecord("Alex", "100", "23", "100"));
+        data.add(new HistoryRecord("Alex", "100", "100", "100"));
+        data.add(new HistoryRecord("Alex", "100", "23", "100"));
+        data.add(new HistoryRecord("Alex", "100", "100", "100"));
+        data.add(new HistoryRecord("Alex", "100", "23", "100"));
+        data.add(new HistoryRecord("Alex", "100", "23", "100"));
+        data.add(new HistoryRecord("Alex", "100", "23", "100"));
     }
 
 }

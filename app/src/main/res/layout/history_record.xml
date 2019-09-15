@@ -2,15 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp"
     android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
-    android:background="@color/defaultBackgroundColor"
-    android:orientation="horizontal"
+    android:layout_marginBottom="10dp"
+    android:background="#fff"
     android:elevation="5dp"
-
-    >
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/record_name_view"
@@ -18,29 +16,47 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:textSize="@dimen/header_text_size"
-        android:text="Party Name"/>
+        android:text="Party Name"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/header_text_size" />
 
     <TextView
         android:id="@+id/amount_of_money_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginBottom="10dp"
         android:layout_gravity="bottom"
-        android:textSize="@dimen/default_text_size"
-        android:text="Amount of money"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Amount of money"
+        android:textSize="@dimen/default_text_size" />
 
-    <TextView
-        android:id="@+id/payment_percent_view"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="50dp"
-        android:layout_gravity="right|center_vertical"
-        android:textSize="@dimen/default_text_size"
-        android:text="Percent"/>
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/relative_people_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="50dp"
+            android:text="Percent"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/tick_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_tick"
+            android:tint="@color/colorGreen"
+            android:visibility="gone"
+            />
+    </FrameLayout>
 
 
 </FrameLayout>

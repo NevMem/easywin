@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/themeColor"
+    android:background="@color/colorPrimaryDark"
     tools:context=".fragments.TopBarFragment">
 
     <TextView
@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:gravity="center"
-        android:paddingLeft="16dp"
         android:layout_gravity="center"
         android:textSize="22dp"
         android:fontFamily="@font/open_sans_semibold"

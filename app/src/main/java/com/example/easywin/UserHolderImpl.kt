@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.network.*
 import javax.inject.Inject
 
-class UserHolderImpl @Inject constructor(private val networkProvider: NetworkProvider) : UserHolder {
+class UserHolderImpl @Inject constructor(private val networkProvider: NetworkProvider, private val sessionHolder: SessionHolder) : UserHolder {
+
 
     private var user: UserData? = null
 
@@ -20,5 +21,13 @@ class UserHolderImpl @Inject constructor(private val networkProvider: NetworkPro
             }
         }
         return liveData
+    }
+
+    override fun getBalance(currencyCode: Int): LiveData<RequestState<Double>> {
+        val balanceLiveData = MutableLiveData<RequestState<Double>>()
+        networkProvider.getUserBalance(sessionHolder.previousSession()!!.sessionId, user!!.deviceId ?: "", currencyCode).subscribe{
+            balanceLiveData.postValue(it)
+        }
+        return balanceLiveData
     }
 }

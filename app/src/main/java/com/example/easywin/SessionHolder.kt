@@ -5,5 +5,7 @@ import com.example.network.FastPaySession
 import com.example.network.RequestState
 
 interface SessionHolder {
-    fun makeSession(): LiveData<RequestState<FastPaySession>>
+    fun makeSession(deviceId: String): LiveData<RequestState<FastPaySession>>
+
+    fun previousSession(): FastPaySession?
 }

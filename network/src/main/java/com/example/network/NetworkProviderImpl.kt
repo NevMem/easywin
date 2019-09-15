@@ -3,10 +3,7 @@ package com.example.network
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.network.callbacks.*
-import com.example.network.services.BackendService
-import com.example.network.services.FastPayService
-import com.example.network.services.InvoiceBody
-import com.example.network.services.SessionRequest
+import com.example.network.services.*
 import io.reactivex.rxjava3.core.Observable
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -58,6 +55,9 @@ class NetworkProviderImpl : NetworkProvider {
     }
 
     override fun createInvoice(
+        sessionId: String,
+        payer: String,
+        recipient: String,
         amount: Int,
         number: String,
         description: String
@@ -66,7 +66,7 @@ class NetworkProviderImpl : NetworkProvider {
         liveData.postValue(PendingState())
 
         fastPayService
-            .invoice(InvoiceBody(amount, 810, description, number))
+            .invoice(sessionId, InvoiceBody(payer, recipient, amount, 810, description, number))
             .enqueue(CreateInvoiceCallback(number, liveData))
 
         return liveData
@@ -130,6 +130,22 @@ class NetworkProviderImpl : NetworkProvider {
             backendService
                 .gotoLastStage(RoomIdRequest(roomId))
                 .execute()
+        }
+    }
+
+    override fun getUserBalance(
+        sessionId: String,
+        address: String,
+        currencyCode: Int
+    ): Observable<RequestState<Double>> {
+        return Observable.create {
+            fastPayService
+                .getBalance(sessionId, BalanceBody(address, currencyCode))
+                .enqueue(getBalanceCallback(object : RequestStateListener<RequestState<Double>> {
+                    override fun stateUpdated(state: RequestState<Double>) {
+                        it.onNext(state)
+                    }
+                }))
         }
     }
 }

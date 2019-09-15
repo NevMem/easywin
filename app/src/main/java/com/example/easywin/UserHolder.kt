@@ -8,4 +8,6 @@ interface UserHolder {
     fun currentUser(): UserData?
 
     fun tryLogin(login: String, password: String): LiveData<RequestState<UserData>>
+
+    fun getBalance(currencyCode: Int): LiveData<RequestState<Double>>
 }

@@ -32,4 +32,10 @@
         <item name="android:textSize">@dimen/default_text_size</item>
     </style>
 
+    <style name="CustomDialogStyle" parent = "Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/themeColor</item>
+        <item name="android:textColorPrimary">@color/themeColor</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
 </resources>

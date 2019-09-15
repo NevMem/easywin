@@ -38,8 +38,7 @@ public class EndOfCreatingMeeting extends AppCompatActivity {
         findViewById(R.id.transOverlay).setVisibility(View.VISIBLE);
     }
 
-    // For QR code.
-    public void OnClick(View view){
+    void FillNames(){
         for(Integer i = 0; i < names.length; i++){
             LayoutInflater inflater = LayoutInflater.from(this);
             View child = inflater.inflate(R.layout.user_row, listViewNames, false);
@@ -47,5 +46,10 @@ public class EndOfCreatingMeeting extends AppCompatActivity {
             ((TextView)child.findViewById(R.id.name)).setText(names[i]);
             listViewNames.addView(child);
         }
+    }
+
+    // For QR code.
+    public void OnClick(View view){
+
     }
 }

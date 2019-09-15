@@ -55,14 +55,15 @@ class WaitEveryoneActivity : AppCompatActivity() {
 
                 if (user.invoiceNumber != null && !map.containsKey(index)) {
                     val liveData = networkProvider.getInvoiceState(810, user.invoiceNumber!!, it.owner.deviceId!!)
-                }
-
-                if (user.payed!!) {
-                    list[index].progress.visibility = View.VISIBLE
-                    list[index].success.visibility = View.GONE
-                } else {
-                    list[index].progress.visibility = View.GONE
-                    list[index].success.visibility = View.VISIBLE
+                    map[index] = liveData
+                    liveData.observe(this, Observer {
+                        list[index].progress.visibility = View.GONE
+                        list[index].success.visibility = View.VISIBLE
+                        if (it is SuccessState) {
+                            list[index].progress.visibility = View.VISIBLE
+                            list[index].success.visibility = View.GONE
+                        }
+                    })
                 }
             }
         })

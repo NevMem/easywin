@@ -1,3 +1,3 @@
 package com.example.network
 
-data class RoomIdRequest(val roomId: String)
+data class RoomIdRequest(val roomId: Int)

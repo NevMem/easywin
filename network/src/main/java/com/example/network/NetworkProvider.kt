@@ -12,11 +12,11 @@ interface NetworkProvider {
 
     fun createRoom(login: String, roomName: String): Observable<RequestState<RoomInfo>>
 
-    fun loadRoomInfo(roomName: String): Observable<RequestState<RoomInfo>>
+    fun loadRoomInfo(roomId: Int): Observable<RequestState<RoomInfo>>
 
     fun join(login: String, roomId: Int): Observable<RequestState<RoomInfo>>
 
-    fun gotoPickMoney(roomId: String)
+    fun gotoPickMoney(roomId: Int)
 
-    fun gotoLastStage(roomId: String)
+    fun gotoLastStage(roomId: Int)
 }

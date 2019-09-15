@@ -53,7 +53,7 @@ public class EndOfCreatingMeeting extends AppCompatActivity {
             public void onChanged(RoomInfo roomInfo) {
                 textViewOfNameLobby.setText(roomInfo.getRoomName());
 
-                textViewIdent.setText(roomInfo.getRoomId());
+                textViewIdent.setText(Integer.toString(roomInfo.getRoomId()));
 
                 if (!roomInfo.getState().equals("WaitingForUsers")) {
                     goToNextStep();
@@ -83,7 +83,27 @@ public class EndOfCreatingMeeting extends AppCompatActivity {
     // For QR code.
     public void OnClick(View view){
         View qrShowView = LayoutInflater.from(this).inflate(R.layout.qr_dialog, null, false);
-        ((ImageView) qrShowView.findViewById(R.id.qrImage)).setImageDrawable(getResources().getDrawable(R.drawable.qr_133756));
+        ImageView imageView = qrShowView.findViewById(R.id.qrImage);
+        switch (roomHolder.currentRoomId()) {
+            case 133756:
+                imageView.setImageDrawable(getDrawable(R.drawable.qr_133756));
+                break;
+            case 133757:
+                imageView.setImageDrawable(getDrawable(R.drawable.qr_133757));
+                break;
+            case 133758:
+                imageView.setImageDrawable(getDrawable(R.drawable.qr_133758));
+                break;
+            case 133759:
+                imageView.setImageDrawable(getDrawable(R.drawable.qr_133759));
+                break;
+            case 133770:
+                imageView.setImageDrawable(getDrawable(R.drawable.qr_133770));
+                break;
+            default:
+                imageView.setImageDrawable(getDrawable(R.drawable.qr_133771));
+                break;
+        }
         final AlertDialog dialog = new AlertDialog.Builder(this, R.style.TransparentDialogStyle)
             .setView(qrShowView)
             .create();

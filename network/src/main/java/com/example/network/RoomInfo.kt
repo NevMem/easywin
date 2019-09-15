@@ -1,7 +1,7 @@
 package com.example.network
 
 data class RoomInfo(
-    val roomId: String,
+    val roomId: Int,
     val roomName: String,
     val state: String,
     val amountOfSpent: Double,

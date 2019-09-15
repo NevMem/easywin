@@ -16,6 +16,8 @@ interface RoomHolder {
 
     fun currentRoom(): LiveData<RoomInfo>
 
+    fun currentRoomId(): Int?
+
     fun state(): RoomHolderState
 
     fun gotoPickMoney()

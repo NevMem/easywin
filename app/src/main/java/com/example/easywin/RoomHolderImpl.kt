@@ -32,7 +32,7 @@ class RoomHolderImpl
     }
 
     private val currentRoom = BehaviorSubject.create<RoomInfo>()
-    private var currentRoomId: String? = null
+    private var currentRoomId: Int? = null
 
     override fun currentRoom(): LiveData<RoomInfo> {
         val liveData = MutableLiveData<RoomInfo>()
@@ -42,6 +42,10 @@ class RoomHolderImpl
         }
 
         return liveData
+    }
+
+    override fun currentRoomId(): Int? {
+        return currentRoomId
     }
 
     override fun createRoom(roomName: String): LiveData<RequestState<RoomInfo>> {
@@ -83,10 +87,10 @@ class RoomHolderImpl
     override fun state(): RoomHolderState = state
 
     override fun gotoPickMoney() {
-        networkProvider.gotoPickMoney(currentRoomId ?: "")
+        networkProvider.gotoPickMoney(currentRoomId ?: -1)
     }
 
     override fun gotoLastStage() {
-        networkProvider.gotoLastStage(currentRoomId ?: "")
+        networkProvider.gotoLastStage(currentRoomId ?: -1)
     }
 }

@@ -87,10 +87,10 @@ class NetworkProviderImpl : NetworkProvider {
         }
     }
 
-    override fun loadRoomInfo(roomName: String): Observable<RequestState<RoomInfo>> {
+    override fun loadRoomInfo(roomId: Int): Observable<RequestState<RoomInfo>> {
         return Observable.create {
             backendService
-                .loadRoomInfo(RoomIdRequest(roomName))
+                .loadRoomInfo(RoomIdRequest(roomId))
                 .enqueue(LoadRoomInfoRequestCallback(object : RequestStateListener<RequestState<RoomInfo>> {
                     override fun stateUpdated(state: RequestState<RoomInfo>) {
                         it.onNext(state)
@@ -117,7 +117,7 @@ class NetworkProviderImpl : NetworkProvider {
         }
     }
 
-    override fun gotoPickMoney(roomId: String) {
+    override fun gotoPickMoney(roomId: Int) {
         GlobalScope.launch {
             backendService
                 .gotoPickMoney(RoomIdRequest(roomId))
@@ -125,7 +125,7 @@ class NetworkProviderImpl : NetworkProvider {
         }
     }
 
-    override fun gotoLastStage(roomId: String) {
+    override fun gotoLastStage(roomId: Int) {
         GlobalScope.launch {
             backendService
                 .gotoLastStage(RoomIdRequest(roomId))

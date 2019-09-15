@@ -22,4 +22,6 @@ interface AppComponent {
     fun inject(joinActivity: JoinActivity)
     fun inject(mainPageFragment: MainPageFragment)
     fun inject(userViewModel: UserViewModel)
+    fun inject(assignTheMount: AssignTheMount)
+    fun inject(activity: WaitEveryoneActivity)
 }

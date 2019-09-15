@@ -1,7 +1,6 @@
 package com.example.network
 
 import androidx.lifecycle.LiveData
-import com.example.network.services.InvoiceInfoResponce
 import io.reactivex.rxjava3.core.Observable
 
 interface NetworkProvider {
@@ -22,6 +21,4 @@ interface NetworkProvider {
     fun gotoLastStage(roomId: Int)
 
     fun getUserBalance(sessionId: String, address: String, currencyCode: Int): Observable<RequestState<Double>>
-
-    fun getInvoiceState(currencyCode: Int, number: String, recipient: String): Observable<RequestState<InvoiceInfoResponce>>
 }

@@ -93,4 +93,8 @@ class RoomHolderImpl
     override fun gotoLastStage() {
         networkProvider.gotoLastStage(currentRoomId ?: -1)
     }
+
+    override fun updateServer(roomInfo: RoomInfo) {
+        networkProvider.updateServerInfo(currentRoomId!!, roomInfo)
+    }
 }

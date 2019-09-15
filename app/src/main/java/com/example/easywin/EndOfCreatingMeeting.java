@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -73,7 +74,7 @@ public class EndOfCreatingMeeting extends AppCompatActivity {
     }
 
     private void goToNextStep() {
-
+        startActivity(new Intent(this, AssignTheMount.class));
     }
 
     public void onEndOfCreateingButtonClick(View view){

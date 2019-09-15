@@ -17,4 +17,6 @@ interface BackendService {
     @POST("/gotoPickMoney") fun gotoPickMoney(@Body request: RoomIdRequest): Call<Void>
 
     @POST("/gotoLastStage") fun gotoLastStage(@Body request: RoomIdRequest): Call<Void>
+
+    @POST("/updateServer") fun updateServer(@Body requst: UpdateRoomInfoRequest): Call<Void>
 }

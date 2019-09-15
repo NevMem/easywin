@@ -31,11 +31,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/default_text_size</item>
     </style>
-
-    <style name="CustomDialogStyle" parent = "Theme.AppCompat.Light.Dialog.Alert">
+    
+    <style name="CustomDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/themeColor</item>
         <item name="android:textColorPrimary">@color/themeColor</item>
         <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="SwitchStyle" parent="Theme.AppCompat.Light">
+        <!-- активное состояние (30% прозрачности для фона) -->
+        <item name="colorControlActivated">@color/themeColor</item>
     </style>
 
 </resources>

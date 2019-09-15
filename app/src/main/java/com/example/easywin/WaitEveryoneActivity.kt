@@ -40,6 +40,8 @@ class WaitEveryoneActivity : AppCompatActivity() {
         val layoutInflater = LayoutInflater.from(this)
 
         roomHolder.currentRoom().observe(this, Observer {
+            if (it == null)
+                return@Observer
             if (list.isEmpty()) {
                 initializeInvoices(it)
 

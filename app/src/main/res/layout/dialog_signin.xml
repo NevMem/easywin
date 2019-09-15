@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <EditText
-        android:id="@+id/CountText"
+        android:id="@+id/countText"
         android:backgroundTint="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
         android:hint="Введите сумму"

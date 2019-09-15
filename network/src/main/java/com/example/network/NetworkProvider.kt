@@ -21,4 +21,6 @@ interface NetworkProvider {
     fun gotoLastStage(roomId: Int)
 
     fun getUserBalance(sessionId: String, address: String, currencyCode: Int): Observable<RequestState<Double>>
+  
+    fun updateServerInfo(roomId: Int, roomInfo: RoomInfo)
 }

@@ -23,4 +23,6 @@ interface RoomHolder {
     fun gotoPickMoney()
 
     fun gotoLastStage()
+
+    fun updateServer(roomInfo: RoomInfo)
 }

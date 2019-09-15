@@ -5,5 +5,7 @@ data class UserData(
     var name: String?,
     var age: Int?,
     var surname: String?,
-    var deviceId: String?
+    var deviceId: String?,
+    var amount: Int?,
+    var payed: Boolean?
 )

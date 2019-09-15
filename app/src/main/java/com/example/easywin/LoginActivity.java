@@ -1,10 +1,12 @@
 package com.example.easywin;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
@@ -25,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     UserData userData;
     Button loginButton;
     ProgressBar bar;
+    ImageView imageView;
 
 
     @Override
@@ -36,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         setUpEnterAnimations();
         loginButton = findViewById(R.id.login_button);
         bar = findViewById(R.id.progress_bar);
+        imageView = findViewById(R.id.imageView);
+
+
     }
 
     public void onLoginButtonClick(View view) {
@@ -55,6 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                     userData = (UserData) ((SuccessState) requestState).getPayload();
                     loginButton.setText(getString(R.string.enter));
                     bar.setVisibility(View.GONE);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             }
         });

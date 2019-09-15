@@ -28,6 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:text="second"
             android:textSize="24dp"
+            android:maxWidth="250dp"
             android:fontFamily="@font/open_sans_semibold"
             android:textColor="#000"
             android:layout_marginStart="50dp"

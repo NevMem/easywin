@@ -133,6 +133,21 @@ class NetworkProviderImpl : NetworkProvider {
         }
     }
 
+    override fun getInvoiceState(
+        currencyCode: Int,
+        number: String,
+        recipient: String
+    ): Observable<RequestState<InvoiceInfoResponce>> {
+        return Observable.create{
+            fastPayService.getInvoiceInfo(currencyCode, number, recipient)
+                .enqueue(getInvoiceInfoCallback(object : RequestStateListener<RequestState<InvoiceInfoResponce>> {
+                    override fun stateUpdated(state: RequestState<InvoiceInfoResponce>) {
+                        it.onNext(state)
+                    }
+                }))
+        }
+    }
+
     override fun getUserBalance(
         sessionId: String,
         address: String,

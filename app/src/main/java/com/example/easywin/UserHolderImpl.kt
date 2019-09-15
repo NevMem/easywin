@@ -9,8 +9,13 @@ class UserHolderImpl @Inject constructor(private val networkProvider: NetworkPro
 
 
     private var user: UserData? = null
+    private var balance: Double?= null
+
 
     override fun currentUser(): UserData? = user
+    override fun getTrueBalance(): Double? {
+        return balance
+    }
 
     override fun tryLogin(login: String, password: String): LiveData<RequestState<UserData>> {
         val liveData = MutableLiveData<RequestState<UserData>>()
@@ -27,6 +32,9 @@ class UserHolderImpl @Inject constructor(private val networkProvider: NetworkPro
         val balanceLiveData = MutableLiveData<RequestState<Double>>()
         networkProvider.getUserBalance(sessionHolder.previousSession()!!.sessionId, user!!.deviceId ?: "", currencyCode).subscribe{
             balanceLiveData.postValue(it)
+            if (it is SuccessState) {
+                balance = it.payload
+            }
         }
         return balanceLiveData
     }

@@ -1,10 +1,7 @@
 package com.example.network.services
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.HEAD
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 data class SessionRequest(
     val deviceId: String,
@@ -54,6 +51,19 @@ data class BalanceResponseData(
     val total: Double
 )
 
+data class InvoiceInfoResponce(
+    val timestamp: String?,
+    val message: String?,
+    val data: InvoiceInfoResponseData
+)
+
+data class InvoiceInfoResponseData(
+    val number: String,
+    val currencyCode: Int,
+    val state: Int
+)
+
+
 interface FastPayService {
     @POST("api/v1/session")
     fun createSession(@Body sessionRequest: SessionRequest): Call<SessionResponse>
@@ -63,4 +73,8 @@ interface FastPayService {
 
     @POST("api/v1/transaction")
     fun getBalance(@Header("FPSID") sessionId: String, @Body balanceBody: BalanceBody): Call<BalanceResponce>
+
+    @GET("api/v1/invoice/{currencyCode}/{number}/{recipient}")
+    fun getInvoiceInfo(@Path("currencyCode") currencyCode: Int, @Path("number") number: String, @Path("recipient") recipient: String): Call<InvoiceInfoResponce>
+
 }

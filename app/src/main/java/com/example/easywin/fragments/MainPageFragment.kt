@@ -39,6 +39,8 @@ class MainPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         username_textview.text = "${viewModel.userHolder.currentUser()?.surname.toString()}\n${viewModel.userHolder.currentUser()?.name.toString()}"
+        balance_textview_firstcurr.text = "${viewModel.userHolder.getTrueBalance() ?: 0}\u20BD"
+        
 
 
         view.join_lobby_button.setOnClickListener {

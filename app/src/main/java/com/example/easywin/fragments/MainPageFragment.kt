@@ -57,7 +57,6 @@ class MainPageFragment : Fragment() {
             // val intent = Intent(context, EndOfCreatingMeeting::class.java)
             // startActivity(intent)
             //val intent = Intent(context, AssignTheMount::class.java)
-            //startActivity(intent)
         }
     }
 

@@ -59,7 +59,7 @@ public class AssignTheMount extends AppCompatActivity {
             public void onChanged(RoomInfo roomInfo) {
                 if (roomInfo == null)
                     return;
-                if (!roomInfo.getState().equals("WaitingForCash")) {
+                if (roomInfo.getState().equals("WaitingForCash")) {
                     goToNextStep();
                 }
                 lastRoomInfo = roomInfo;

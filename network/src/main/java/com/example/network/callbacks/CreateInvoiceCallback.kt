@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CreateInvoiceCallback(private val number: String, private val liveData: MutableLiveData<RequestState<InvoiceResult>>) :
+class CreateInvoiceCallback(private val number: String, private val login: String, private val liveData: MutableLiveData<RequestState<InvoiceResult>>) :
     Callback<InvoiceResponse> {
 
     override fun onFailure(call: Call<InvoiceResponse>, t: Throwable) {
@@ -27,7 +27,7 @@ class CreateInvoiceCallback(private val number: String, private val liveData: Mu
             liveData.postValue(ErrorState("Unknown server response"))
             return
         }
-        liveData.postValue(SuccessState(InvoiceResult(number)))
+        liveData.postValue(SuccessState(InvoiceResult(number, login)))
     }
 
 }

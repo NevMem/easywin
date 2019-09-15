@@ -9,4 +9,14 @@ interface NetworkProvider {
     fun makeSession(deviceId: String): Observable<RequestState<FastPaySession>>
 
     fun createInvoice(amount: Int, number: String, description: String): LiveData<RequestState<InvoiceResult>>
+
+    fun createRoom(login: String, roomName: String): Observable<RequestState<RoomInfo>>
+
+    fun loadRoomInfo(roomName: String): Observable<RequestState<RoomInfo>>
+
+    fun join(login: String, roomId: Int): Observable<RequestState<RoomInfo>>
+
+    fun gotoPickMoney(roomId: String)
+
+    fun gotoLastStage(roomId: String)
 }

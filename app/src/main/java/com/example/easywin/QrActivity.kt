@@ -3,6 +3,8 @@ package com.example.easywin
 import android.Manifest
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -39,6 +41,28 @@ class QrActivity : AppCompatActivity() {
             }
         }
 
+        actionButton.setOnClickListener {
+            val intent = Intent()
+            var ok = false
+            if (mode == Mode.JOIN) {
+                val curRoomId = roomId
+                if (curRoomId != null) {
+                    ok = true
+                    intent.putExtra("roomId", curRoomId)
+                }
+            } else {
+                val curAddress = currentAddress
+                if (curAddress != null) {
+                    ok = true
+                    intent.putExtra("address", curAddress)
+                }
+            }
+            if (ok) {
+                setResult(Activity.RESULT_OK, intent)
+                finish()
+            }
+        }
+
         if (!isCameraGranted()) {
             requestCamera()
         } else {
@@ -47,9 +71,7 @@ class QrActivity : AppCompatActivity() {
     }
 
     private fun updateCamera() {
-        textureView.post {
-            startCamera()
-        }
+        startCamera()
     }
 
     enum class State {

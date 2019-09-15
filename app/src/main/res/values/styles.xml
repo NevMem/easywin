@@ -43,4 +43,9 @@
         <item name="colorControlActivated">@color/themeColor</item>
     </style>
 
+    <style name="TransparentDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>

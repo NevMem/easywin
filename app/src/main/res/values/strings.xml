@@ -14,4 +14,9 @@
     <string name="password">Пароль:</string>
     <string name="enter">Войти</string>
     <string name="wrong_login_data">Неверные данные пользователя</string>
+    <string name="close_string">Закрыть</string>
+    <string name="creation_exp">Здесь вы можете создать вечеринку</string>
+    <string name="party_name_hint">Название вечеринки</string>
+    <string name="explaint2Text">Это первый этап создания вечеринки дальше вы сможете подключить к ней своих друзей и разделить ваш счет</string>
+    <string name="expalain_wait_state">Ожидайте пока создатель добавляет всех участников тусовки</string>
 </resources>
